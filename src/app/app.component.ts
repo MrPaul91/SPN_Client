@@ -9,7 +9,7 @@ import { ToastMessageModel } from 'ng2-alert-service/toast-message-component/toa
 })
 export class AppComponent implements OnInit{
 
-    constructor(private bootstrapAlertService: BootstrapAlertService) {
+  constructor(private bootstrapAlertService: BootstrapAlertService) {
 
   }
 

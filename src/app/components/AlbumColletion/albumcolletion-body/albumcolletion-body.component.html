@@ -10,7 +10,7 @@
             <div class="section">
               <div class="row">
                 <div class="col s3 offset-s2">
-                  <img src="assets/image/about.png" class="circle" alt="..." width="100px" height="100px">
+                  <img src= {{this.path}} class="circle"  width="100px" height="100px">
                 </div>
                 <div class="col s3">
                   <div class="section">
@@ -21,9 +21,9 @@
                 </div>
                 <div class="col s3">
                   <div class="section">
-                    <p>Name</p>
-                    <p>Username</p>
-                    <p>Email</p>
+                    <p>{{this._globalService.Session.user.person.name}}</p>
+                    <p>{{this._globalService.Session.user.username}}</p>
+                    <p>{{this._globalService.Session.user.email}}</p>
                   </div>
                 </div>
               </div>

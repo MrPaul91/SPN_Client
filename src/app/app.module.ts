@@ -15,14 +15,15 @@ import { AboutBodyComponent } from './components/About/about-body/about-body.com
 import { AlbumBodyComponent } from './components/Album/album-body/album-body.component';
 
 //Routes
-import { app
-  routing } from './app.routes';
-
+import { routing } from './app.routes';
+import { RouterModule }   from '@angular/router';
 
 //Services
 import { GlobalService } from './Services/global.service';
 import { SignupService } from './components/SignUp/signup-body/signup.service';
 import { logInService } from './components/LogIn/login-body/login-service';
+import { sessionTemplate } from './components/LogIn/login-body/sessiontemplate';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { logInService } from './components/LogIn/login-body/login-service';
     ImageUploadModule,
     HttpModule,
     BootstrapAlertModule,
-    app_routing
+    routing
   ],
   providers: [
     GlobalService,
