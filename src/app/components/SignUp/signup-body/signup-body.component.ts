@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageResult, ResizeOptions } from 'ng2-imageupload';
 import { GlobalService } from "../../../Services/global.service";
+import { SignupService } from '../../../Services/signup.service';
 import { SignUp } from './signup-template';
 import { Avatar } from './Avatar';
 
@@ -9,11 +10,14 @@ import { Avatar } from './Avatar';
   templateUrl: './signup-body.component.html',
   styles: []
 })
+
 export class SignupBodyComponent implements OnInit {
 
-  signUp = new SignUp();
+  public signUp = new SignUp();
+  public message: String;
+  public showMessage: Boolean = false;
 
-  constructor(private _globalService:GlobalService) {
+  constructor(private _globalService:GlobalService, private _signupService:SignupService) {
     console.log('http://'+this._globalService.IP + ':'+this._globalService.PORT);
   }
 
@@ -21,7 +25,11 @@ export class SignupBodyComponent implements OnInit {
   }
 
   postSignUpData(){
-    console.log(this.signUp);
+    this._signupService.postSignUpService(this.signUp)
+    .subscribe(message => {
+        this.message = <any>message;
+        this.showMessage = true;
+    });
   }
 
   resizeOptions: ResizeOptions = {
@@ -34,7 +42,6 @@ export class SignupBodyComponent implements OnInit {
     this.signUp.avatar = new Avatar();
     this.signUp.avatar.file = text.replace(/^data:image\/\w+;base64,/, '');
     this.signUp.avatar.extension = '.' + text.substring(11, text.search(/;/));;
-    console.log(this.signUp.avatar);
   }
 
 

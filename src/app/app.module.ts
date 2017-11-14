@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
+import { HttpModule } from '@angular/http';
 
 //Components
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { app_routing } from './app.routes';
 
 //Services
 import { GlobalService } from './Services/global.service';
+import { SignupService } from './Services/signup.service';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,12 @@ import { GlobalService } from './Services/global.service';
     BrowserModule,
     FormsModule,
     ImageUploadModule,
+    HttpModule,
     app_routing
   ],
   providers: [
-    GlobalService
+    GlobalService,
+    SignupService
   ],
   bootstrap: [AppComponent]
 })

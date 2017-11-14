@@ -1,19 +1,19 @@
-<div [hidden] ="this._globalService.initialNavBar">
+<div [hidden]="this._globalService.initialNavBar">
   <nav>
-     <div class="nav-wrapper grey darken-3">
-       <div class="icon">
-         <a href="#" class="brand-logo">
+    <div class="nav-wrapper grey darken-3">
+      <div class="icon">
+        <a href="#" class="brand-logo">
            <img src="assets/image/camera.png" width="40" height="30" alt="">
            SPN Album
          </a>
-       </div>
-       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-       <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <li routerLinkActive="active"><a [routerLink]= "['login']">Log In</a></li>
-         <li routerLinkActive="active"><a [routerLink]= "['signup']">Sign Up</a></li>
-         <li routerLinkActive="active"><a [routerLink]= "['about']"><i class="material-icons">help</i></a></li>
-       </ul>
-     </div>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li routerLinkActive="active"><a [routerLink]="['login']">Log In</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['signup']">Sign Up</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['about']"><i class="material-icons">help</i></a></li>
+      </ul>
+    </div>
   </nav>
 </div>
