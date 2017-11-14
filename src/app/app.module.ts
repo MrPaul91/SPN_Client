@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
 import { HttpModule } from '@angular/http';
+import { BootstrapAlertModule } from 'ng2-alert-service/bootstrap-alert.module';
 
 //Components
 import { AppComponent } from './app.component';
@@ -14,12 +15,14 @@ import { AboutBodyComponent } from './components/About/about-body/about-body.com
 import { AlbumBodyComponent } from './components/Album/album-body/album-body.component';
 
 //Routes
-import { app_routing } from './app.routes';
+import { app
+  routing } from './app.routes';
 
 
 //Services
 import { GlobalService } from './Services/global.service';
-import { SignupService } from './Services/signup.service';
+import { SignupService } from './components/SignUp/signup-body/signup.service';
+import { logInService } from './components/LogIn/login-body/login-service';
 
 @NgModule({
   declarations: [
@@ -36,11 +39,13 @@ import { SignupService } from './Services/signup.service';
     FormsModule,
     ImageUploadModule,
     HttpModule,
+    BootstrapAlertModule,
     app_routing
   ],
   providers: [
     GlobalService,
-    SignupService
+    SignupService,
+    logInService
   ],
   bootstrap: [AppComponent]
 })

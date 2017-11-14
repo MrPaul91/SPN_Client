@@ -8,6 +8,5 @@ export class GlobalService {
   PORT: String = "1337";
 
   constructor() {
-
   }
 }

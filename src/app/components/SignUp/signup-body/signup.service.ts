@@ -3,8 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
-import { SignUp } from '../components/SignUp/signup-body/signup-template';
-import { GlobalService } from './global.service';
+import { SignUp } from './signup-template';
+import { GlobalService } from '../../../Services/global.service';
 
 @Injectable()
 export class SignupService {
@@ -19,6 +19,11 @@ export class SignupService {
   postSignUpService(signUpData:SignUp){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
+
+    /*return this.http.post(this.url, JSON.stringify(signUpData), options)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);*/
+
     return this.http.post(this.url, JSON.stringify(signUpData), options)
       .map(this.extractData)
       .catch(this.handleErrorObservable);
@@ -26,13 +31,14 @@ export class SignupService {
 
   private extractData(res: Response) {
     let body = res.json();
-    console.log(body);
     return body;
   }
 
   private handleErrorObservable (error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.message || error);
+    //console.error(error.message || error);
+    console.log("El error es:");
+    console.log(error.json());
+    return Observable.throw(error.json());
   }
 
 }

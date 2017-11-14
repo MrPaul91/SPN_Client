@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { BootstrapAlertService } from 'ng2-alert-service/bootstrap-alert.service';
 import { ImageResult, ResizeOptions } from 'ng2-imageupload';
 import { GlobalService } from "../../../Services/global.service";
-import { SignupService } from '../../../Services/signup.service';
+import { SignupService } from './signup.service';
 import { SignUp } from './signup-template';
 import { Avatar } from './Avatar';
 
@@ -14,10 +15,9 @@ import { Avatar } from './Avatar';
 export class SignupBodyComponent implements OnInit {
 
   public signUp = new SignUp();
-  public message: String;
-  public showMessage: Boolean = false;
+  public message: string;
 
-  constructor(private _globalService:GlobalService, private _signupService:SignupService) {
+  constructor(private _globalService:GlobalService, private _signupService:SignupService, private bootstrapAlertService: BootstrapAlertService) {
     console.log('http://'+this._globalService.IP + ':'+this._globalService.PORT);
   }
 
@@ -26,9 +26,9 @@ export class SignupBodyComponent implements OnInit {
 
   postSignUpData(){
     this._signupService.postSignUpService(this.signUp)
-    .subscribe(message => {
-        this.message = <any>message;
-        this.showMessage = true;
+    .subscribe(result => {
+      this.message = <any>result.message;
+      this.showMessage();
     });
   }
 
@@ -44,5 +44,8 @@ export class SignupBodyComponent implements OnInit {
     this.signUp.avatar.extension = '.' + text.substring(11, text.search(/;/));;
   }
 
+  showMessage(){
+    this.bootstrapAlertService.showSucccess(this.message);
+  }
 
 }
