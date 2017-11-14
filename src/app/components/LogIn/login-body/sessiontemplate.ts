@@ -8,10 +8,12 @@ export class sessionTemplate {
         username: string,
         avatar: string,
         email: string
-    }
+    };
+    sessionId: string;
     constructor(answer: sessionTemplate) {
          this.message = answer.message;
          this.user = answer.user;
+         this.sessionId = answer.sessionId;
     }
  } 
  

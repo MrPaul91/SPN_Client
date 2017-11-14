@@ -23,7 +23,7 @@ import { GlobalService } from './Services/global.service';
 import { SignupService } from './components/SignUp/signup-body/signup.service';
 import { logInService } from './components/LogIn/login-body/login-service';
 import { sessionTemplate } from './components/LogIn/login-body/sessiontemplate';
-
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { sessionTemplate } from './components/LogIn/login-body/sessiontemplate';
   providers: [
     GlobalService,
     SignupService,
-    logInService
+    logInService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

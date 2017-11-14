@@ -21,7 +21,7 @@ export class logInService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.url, JSON.stringify(logInData), options).map((res: Response) => res.json());
+        return this.http.post(this.url, JSON.stringify(logInData), options).map((res: Response) => res);
     }
 
     public extractData(res: Response) {
