@@ -24,6 +24,8 @@ import { SignupService } from './components/SignUp/signup-body/signup.service';
 import { logInService } from './components/LogIn/login-body/login-service';
 import { sessionTemplate } from './components/LogIn/login-body/sessiontemplate';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { albumcolletionService } from './components/AlbumColletion/albumcolletion-body/albumcolletion-service';
+import { albumService } from './components/Album/album-body/album-body.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
     GlobalService,
     SignupService,
     logInService,
-    CookieService
+    CookieService,
+    albumcolletionService,
+    albumService
   ],
   bootstrap: [AppComponent]
 })

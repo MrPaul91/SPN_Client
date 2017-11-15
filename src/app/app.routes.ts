@@ -5,13 +5,16 @@ import { LoginBodyComponent } from './components/LogIn/login-body/login-body.com
 import { SignupBodyComponent } from './components/SignUp/signup-body/signup-body.component';
 import { AboutBodyComponent } from './components/About/about-body/about-body.component';
 import { AlbumcolletionBodyComponent } from './components/AlbumColletion/albumcolletion-body/albumcolletion-body.component';
+import { AlbumBodyComponent } from './components/Album/album-body/album-body.component';
 
 const app_routes: Routes = [
   { path: 'albumcollection', component: AlbumcolletionBodyComponent },
   { path: 'login', component: LoginBodyComponent },
   { path: 'signup', component: SignupBodyComponent },
   { path: 'about', component: AboutBodyComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'album/:albumId', component: AlbumBodyComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
+
   
 ];
 

@@ -8,7 +8,7 @@ import { GlobalService } from "../../../Services/global.service";
 })
 export class InitialnavbarComponent implements OnInit {
 
-  constructor(private _globalService:GlobalService) {
+  constructor(public _globalService:GlobalService) {
 
   }
 

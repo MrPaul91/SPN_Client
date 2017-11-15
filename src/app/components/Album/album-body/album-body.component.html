@@ -1,14 +1,23 @@
 <div class="main-container">
+
+  <div class="row center-align">
+      <a class="waves-effect waves-light btn-large green lighten-1" ><i class="material-icons left">add</i>Add Image</a>
+  </div>
+
   <div class="row">
     <!-- Iteramos sobre el elemento hasta la cantidad de imagenes disponibles-->
-    <div class="col s3 offset-s2">
+    <div class="col s3 offset-s2" *ngFor="let image of ImageArray">
       <div class="card">
         <div class="card-image">
-          <img src="assets/image/about.png">
-          <span class="card-title">Card Title</span>
+          <img src={{this.path+image.imagePath}}>
+          <span class="card-title">{{image.title}}</span>
         </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        <div class="card-content center-align">
+
+          <p><b>Order Number: </b>{{image.orderNumber}}</p>
+          <p><b>Username: </b>{{image.username}}</p>
+          <p><b>Description: </b>{{image.description}}</p>
+
           <div class="section center-align">
             <a class="btn-floating waves-effect waves-light red"><i class="material-icons">insert_chart</i></a>
             <a class="btn-floating waves-effect waves-light yellow darken-1"><i class="material-icons">format_quote</i></a>
@@ -16,7 +25,11 @@
             <a class="btn-floating waves-effect waves-light blue"><i class="material-icons">attach_file</i></a>
           </div>
         </div>
+
+        <div class="card-action center-align">
+          <b>{{image.comment}}</b>
+          <div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>

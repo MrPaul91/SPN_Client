@@ -6,7 +6,7 @@ import { sessionTemplate } from '../components/LogIn/login-body/sessiontemplate'
 export class GlobalService {
 
   initialNavBar:Boolean = false;
-  IP: String ="localhost";
+  IP: String ="192.168.1.66";
   PORT: String = "1337";
   Session: sessionTemplate;
 

@@ -26,12 +26,11 @@ export class LoginBodyComponent implements OnInit {
     this.loginService.postLogInO(this.login).subscribe(
       res => {
         this.data = res.json();
-        console.log(res);
         let session = new sessionTemplate(this.data);
-        console.log(session);
         this._globalService.initializeSession(session);
         this.message = this.data.message;
         this.showSuccesfulMessage();
+        this._globalService.initialNavBar = true;
         this.router.navigateByUrl('/albumcollection');
       },
       error => {
