@@ -1,11 +1,11 @@
 <div class="main-container">
 
-  <div class="row center-align">
-      <a class="waves-effect waves-light btn-large green lighten-1" ><i class="material-icons left">add</i>Add Image</a>
+  <div *ngIf="!this._globalService.visitandoUsuario" class="row center-align">
+    <a class="waves-effect waves-light btn-large green lighten-1" (click)="insertImage()"><i class="material-icons left">add</i>Add Image</a>
   </div>
 
   <div class="row">
-    <!-- Iteramos sobre el elemento hasta la cantidad de imagenes disponibles-->
+
     <div class="col s3 offset-s2" *ngFor="let image of ImageArray">
       <div class="card">
         <div class="card-image">
@@ -18,11 +18,11 @@
           <p><b>Username: </b>{{image.username}}</p>
           <p><b>Description: </b>{{image.description}}</p>
 
-          <div class="section center-align">
-            <a class="btn-floating waves-effect waves-light red"><i class="material-icons">insert_chart</i></a>
-            <a class="btn-floating waves-effect waves-light yellow darken-1"><i class="material-icons">format_quote</i></a>
-            <a class="btn-floating waves-effect waves-light green"><i class="material-icons">publish</i></a>
-            <a class="btn-floating waves-effect waves-light blue"><i class="material-icons">attach_file</i></a>
+          <div *ngIf="this._globalService.visitandoUsuario" class="section center-align">
+            <a class="btn-floating waves-effect waves-light yellow" (click)="referenceImage(image)"><i class="material-icons">add</i></a>
+          </div>
+          <div *ngIf="!this._globalService.visitandoUsuario" class="section center-align">
+            <a class="btn-floating waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
           </div>
         </div>
 

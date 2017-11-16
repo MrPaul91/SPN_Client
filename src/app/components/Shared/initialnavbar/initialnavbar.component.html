@@ -30,18 +30,19 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <form>
-            <div class="row center-align">
-              <div class="input-field">
-                <input name="username" id="username" type="text" class="validate">
-                <label for="username">User to search</label>
-              </div>
-            </div>
-          </form>
-        </li>
-        <li><a class="waves-effect waves-light btn"><i class="material-icons">search</i></a></li>
-        <li routerLinkActive="active"><a [routerLink]="['login']">Log Out</a></li>
+     
+            <li>
+              <form>
+                <div class="row center-align">
+                  <div class="input-field">
+                    <input [(ngModel)] = "this.usernameToFind" name="username" id="username" type="text" class="validate">
+                    <label for="username">User to search</label>
+                  </div>
+                </div>
+              </form>
+            </li>
+          <li><a class="waves-effect waves-light btn"><i class="material-icons" (click)="checkRolForSearch()">search</i></a></li>
+        <li routerLinkActive="active"><a [routerLink]="['login']" (click)="changeBarLogOut()" >Log Out</a></li>
         <li routerLinkActive="active"><a [routerLink]="['about']"><i class="material-icons">help</i></a></li>
       </ul>
     </div>

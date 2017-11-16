@@ -7,7 +7,8 @@ export class sessionTemplate {
         }
         username: string,
         avatar: string,
-        email: string
+        email: string,
+        rol: string
     };
     sessionId: string;
     constructor(answer: sessionTemplate) {

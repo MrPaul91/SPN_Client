@@ -6,9 +6,12 @@ import { sessionTemplate } from '../components/LogIn/login-body/sessiontemplate'
 export class GlobalService {
 
   initialNavBar:Boolean = false;
-  IP: String ="192.168.1.66";
+  IP: String ="172.32.13.48";
   PORT: String = "1337";
   Session: sessionTemplate;
+  Rol: string;
+
+  visitandoUsuario: Boolean = false;
 
 
   constructor() {

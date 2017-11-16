@@ -13,7 +13,9 @@ import { AlbumcolletionBodyComponent } from './components/AlbumColletion/albumco
 import { InitialnavbarComponent } from './components/Shared/initialnavbar/initialnavbar.component';
 import { AboutBodyComponent } from './components/About/about-body/about-body.component';
 import { AlbumBodyComponent } from './components/Album/album-body/album-body.component';
-
+import { InsertImageComponent } from './components/insert-image/insert-image.component';
+import { InsertAlbumComponent } from './components/insert-album/insert-album.component';
+import { AlbumsOfOtherUserComponent } from './components/albums-of-other-user/albums-of-other-user.component';
 //Routes
 import { routing } from './app.routes';
 import { RouterModule }   from '@angular/router';
@@ -26,6 +28,12 @@ import { sessionTemplate } from './components/LogIn/login-body/sessiontemplate';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { albumcolletionService } from './components/AlbumColletion/albumcolletion-body/albumcolletion-service';
 import { albumService } from './components/Album/album-body/album-body.service';
+import { insertImageService } from "./components/insert-image/insert-image.service";
+import { insertAlbumService } from './components/insert-album/insert-album.service';
+import { albumOfOtherUserService } from './components/albums-of-other-user/albumofotheruser-service';
+import { CopyImageComponent } from './components/copy-image/copy-image.component';
+import { copyImageService } from './components/copy-image/copy-image.service';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +43,11 @@ import { albumService } from './components/Album/album-body/album-body.service';
     AlbumcolletionBodyComponent,
     InitialnavbarComponent,
     AboutBodyComponent,
-    AlbumBodyComponent
+    AlbumBodyComponent,
+    InsertImageComponent,
+    InsertAlbumComponent,
+    AlbumsOfOtherUserComponent,
+    CopyImageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +63,11 @@ import { albumService } from './components/Album/album-body/album-body.service';
     logInService,
     CookieService,
     albumcolletionService,
-    albumService
+    albumService,
+    insertImageService,
+    insertAlbumService,
+    albumOfOtherUserService,
+    copyImageService
   ],
   bootstrap: [AppComponent]
 })

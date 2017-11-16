@@ -29,10 +29,4 @@ export class logInService {
         return body;
     }
 
-    /*
-    private handleErrorObservable(error: Response | any) {
-        //console.error(error.message || error);
-        return Observable.throw(error.message || error);
-    }*/
-
 }

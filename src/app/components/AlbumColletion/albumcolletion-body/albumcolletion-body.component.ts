@@ -13,50 +13,48 @@ import { Router } from '@angular/router';
 })
 export class AlbumcolletionBodyComponent implements OnInit {
 
-  public path:string;
+  public path: string;
   ResponseData: any;
 
   public albumcollectionObject = new albumcollectionTemplate();
-  
+
 
   public AlbumsArray: body_albumTemplate[];
   public AlbumSelected: body_albumTemplate;
 
 
-  constructor(private _globalService:GlobalService, private albumcollectionService: albumcolletionService, private router: Router) {
+  constructor(private _globalService: GlobalService, private albumcollectionService: albumcolletionService, private router: Router) {
   }
 
   ngOnInit() {
-    this.path = "http://" + this._globalService.IP +':'+this._globalService.PORT +this._globalService.Session.user.avatar;
+    this._globalService.visitandoUsuario = false;
+    this.path = "http://" + this._globalService.IP + ':' + this._globalService.PORT + this._globalService.Session.user.avatar;
     this.albumcollectionObject.username = this._globalService.Session.user.username;
     this.albumcollectionObject.sessionId = this._globalService.Session.sessionId;
-
-   //Ahora hacemos la peticion.
-    this.getAlbumsData();    
+    this.getAlbumsData();
   }
 
-  getAlbumsData(){ 
-    console.log(this.albumcollectionObject);
+  getAlbumsData() {
+
     this.albumcollectionService.getAlbums(this.albumcollectionObject).subscribe(
-       res =>{
-           this.ResponseData = res.json();
-           let albumObject = new albumcollectionResponseTemplate(this.ResponseData);
-           this.AlbumsArray = albumObject.Albums;
-       },
-       error => {
-           console.log(error);
-       }
+      res => {
+        this.ResponseData = res.json();
+        let albumObject = new albumcollectionResponseTemplate(this.ResponseData);
+        this.AlbumsArray = albumObject.Albums;
+      },
+      error => {
+        console.log(error);
+      }
     )
   }
 
   selectedAlbum(album: body_albumTemplate): void {
     this.AlbumSelected = album;
-    this.router.navigateByUrl('/album/'+this.AlbumSelected.albumId);
-
+    this.router.navigateByUrl('/album/' + this.AlbumSelected.albumId);
   }
 
-  createAlbum(){
-    
+  createAlbum() {
+    this.router.navigateByUrl('/insertAlbum');
   }
 
 }

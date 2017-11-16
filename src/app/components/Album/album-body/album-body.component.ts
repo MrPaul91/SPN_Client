@@ -23,17 +23,15 @@ export class AlbumBodyComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private _globalService: GlobalService,
-    private albumService: albumService
+    private albumService: albumService,
+    private router: Router
   ) {
 
   }
 
-
   ngOnInit() {
     this.path = "http://" + this._globalService.IP + ':' + this._globalService.PORT;
     this.route.params.subscribe((params: Params) => {
-      //console.log("entro al album seleccionado : ");
-      //console.log(params['albumId']);
       this.albumObject.albumId = params['albumId'];
       this.albumObject.username = this._globalService.Session.user.username;
       this.albumObject.sessionId = this._globalService.Session.sessionId;
@@ -47,20 +45,22 @@ export class AlbumBodyComponent implements OnInit {
 
     this.albumService.getImages(this.albumObject).subscribe(
       res => {
-
         let ImageResponseObject = new albumResponseTemplate(res.json());
-
-        console.log(ImageResponseObject);
-
         this.ImageArray = ImageResponseObject.Images;
-
-        //console.log(res);
       },
       error => {
         console.log(error);
       }
     )
 
+  }
+
+  insertImage() {
+    this.router.navigateByUrl('/insertImage/' + this.albumObject.albumId);
+  }
+
+  referenceImage(image: body_imageTemplate) {
+    this.router.navigateByUrl('/copyimage/' + image.idImage);
   }
 
 }
